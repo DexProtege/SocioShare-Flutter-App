@@ -4,7 +4,7 @@
             "outputFile": "C:\\flutter\\socioshare\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-am\\values-am.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-base-16.0.1.aar\\c34b58a83e0faaa0ff22910274ffa545\\res\\values-am\\values.xml",
+                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-17.0.0.aar\\c6b522b8af667241301e53e8683fe738\\res\\values-am\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-firebase-messaging-17.3.3.aar\\cce9d82a41a7c784d23c68fdf4cf9488\\res\\values-am\\values.xml",
+                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-basement-17.0.0.aar\\90457b965ac34ef0ea29c8179a057b88\\res\\values-am\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "190",
+                        "endOffsets": "437"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1188",
+                        "endColumns": "190",
+                        "endOffsets": "1374"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-firebase-messaging-17.3.3.aar\\1d7eb221d8f856e1ab540ae021280b47\\res\\values-am\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.2.aar\\ff0041cce34490b33f4a8cd5b4cf09eb\\res\\values-am\\values-am.xml",
+                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.2.aar\\e4c306a2ba42f33ce6069e47107c1a1b\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,23 +69,6 @@
                         "startOffsets": "2704",
                         "endColumns": "100",
                         "endOffsets": "2800"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\DexProtege\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-basement-16.1.0.aar\\8ef1ef8d4ebd465304c5e197c3ab8a3e\\res\\values-am\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "190",
-                        "endOffsets": "437"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1188",
-                        "endColumns": "190",
-                        "endOffsets": "1374"
                     }
                 }
             ]

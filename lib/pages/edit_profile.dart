@@ -116,7 +116,7 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white10,
         title: Text(
           "Edit Profile",
           style: TextStyle(
@@ -166,7 +166,7 @@ class _EditProfileState extends State<EditProfile> {
                         child: Text(
                           "Update Profile",
                           style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            color: Colors.green,
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),

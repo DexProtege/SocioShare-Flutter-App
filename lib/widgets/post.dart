@@ -281,8 +281,8 @@ class _PostState extends State<Post> {
                     scale: anim.value,
                     child: Icon(
                       Icons.favorite,
-                      size: 80.0,
-                      color: Colors.red,
+                      size: 150.0,
+                      color: Colors.pinkAccent,
                     ),
                   ),
                 )

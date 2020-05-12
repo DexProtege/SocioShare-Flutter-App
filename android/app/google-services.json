@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:487993774446:android:fc039120181fb5f4d1f17f",
+        "mobilesdk_app_id": "1:487993774446:android:a3539e6dceb96f33d1f17f",
         "android_client_info": {
-          "package_name": "com.dexprotege.flutterShare"
+          "package_name": "com.dexprotege.SocioShare"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "487993774446-bads5r5hpbck9eeo52cbtu2te8cdem70.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dexprotege.flutterShare",
-            "certificate_hash": "f9709a6b88373dfc92cadc93632c423ddcbf43ac"
-          }
-        },
         {
           "client_id": "487993774446-00ebeg6i5s11ep81eqdd3mildohmuqt5.apps.googleusercontent.com",
           "client_type": 3

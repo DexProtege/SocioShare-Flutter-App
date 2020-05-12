@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dexprotege.flutterShare"
+    package="com.dexprotege.SocioShare"
     android:targetSandboxVersion="2"
     android:versionCode="1"
-    android:versionName="1.2.2" >
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -65,7 +65,7 @@
 
         <provider
             android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-            android:authorities="com.dexprotege.flutterShare.flutter.image_provider"
+            android:authorities="com.dexprotege.SocioShare.flutter.image_provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -174,7 +174,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.dexprotege.flutterShare.firebaseinitprovider"
+            android:authorities="com.dexprotege.SocioShare.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
