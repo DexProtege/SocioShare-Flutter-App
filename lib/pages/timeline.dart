@@ -91,20 +91,20 @@ class _TimelineState extends State<Timeline> {
           child: Column(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
                       Icons.person_add,
                       color: Theme.of(context).primaryColor,
-                      size: 25.0,
+                      size: 30.0,
                     ),
                     SizedBox(
-                      width: 5.0,
+                      width: 8.0,
                     ),
                     Text(
-                      "Users you can follow to..",
+                      "Users you can follow!",
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 20.0,

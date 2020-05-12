@@ -10,7 +10,7 @@ class PostTile extends StatelessWidget {
 
   showPost(context) {
     Navigator.push(
-      context, 
+      context,
       MaterialPageRoute(
         builder: (context) => PostScreen(
           postId: post.postId,

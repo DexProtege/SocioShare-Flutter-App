@@ -4,12 +4,11 @@ import 'package:SocioShare/pages/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firestore.instance.settings(timestampsInSnapshotsEnabled: true).then((_){
-    //print("Timestamp enabled in snapshot\n");
-    }, onError: (_) {
-      //print("Error enabling timestamp in snapshot\n");
-    }
-  );
+  Firestore.instance.settings(timestampsInSnapshotsEnabled: true).then((_) {
+    // print("Timestamps enabled in snapshots\n");
+  }, onError: (_) {
+    // print("Error enabling timestamps in snapshots\n");
+  });
   runApp(MyApp());
 }
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
-        accentColor: Colors.purple
+        accentColor: Colors.purple,
       ),
       home: Home(),
     );

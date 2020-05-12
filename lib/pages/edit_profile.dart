@@ -24,12 +24,12 @@ class _EditProfileState extends State<EditProfile> {
   bool _bioValid = true;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getUser();
   }
 
-  getUser() async{
+  getUser() async {
     setState(() {
       isLoading = true;
     });
@@ -42,34 +42,35 @@ class _EditProfileState extends State<EditProfile> {
     });
   }
 
-  Column builDisplayNameField(){
+  Column buildDisplayNameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(top: 12.0),
-          child: Text("Display Name", 
-            style: TextStyle(color: Colors.grey),
-          ),
-        ),
+            padding: EdgeInsets.only(top: 12.0),
+            child: Text(
+              "Display Name",
+              style: TextStyle(color: Colors.grey),
+            )),
         TextField(
           controller: displayNameController,
           decoration: InputDecoration(
             hintText: "Update Display Name",
-            errorText: _displayNameValid ? null : "Display name too short",
+            errorText: _displayNameValid ? null : "Display Name too short",
           ),
-        ),
+        )
       ],
     );
   }
 
-  Column buildBioField(){
+  Column buildBioField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: EdgeInsets.only(top: 12.0),
-          child: Text("Bio", 
+          child: Text(
+            "Bio",
             style: TextStyle(color: Colors.grey),
           ),
         ),
@@ -79,32 +80,35 @@ class _EditProfileState extends State<EditProfile> {
             hintText: "Update Bio",
             errorText: _bioValid ? null : "Bio too long",
           ),
-        ),
+        )
       ],
     );
   }
 
-  updateProfileData(){
+  updateProfileData() {
     setState(() {
       displayNameController.text.trim().length < 3 ||
-      displayNameController.text.isEmpty ? _displayNameValid = false :
-      _displayNameValid = true;
-      bioController.text.trim().length > 100? _bioValid = false :
-      _bioValid = true;
+              displayNameController.text.isEmpty
+          ? _displayNameValid = false
+          : _displayNameValid = true;
+      bioController.text.trim().length > 100
+          ? _bioValid = false
+          : _bioValid = true;
     });
-    if(_displayNameValid && _bioValid) {
+
+    if (_displayNameValid && _bioValid) {
       usersRef.document(widget.currentUserId).updateData({
         "displayName": displayNameController.text,
         "bio": bioController.text,
       });
-      SnackBar snackbar = SnackBar(content: Text("Profile Updated!"));
+      SnackBar snackbar = SnackBar(content: Text("Profile updated!"));
       _scaffoldKey.currentState.showSnackBar(snackbar);
     }
   }
 
-  logout()async{
-   await googleSignIn.signOut();
-   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
+  logout() async {
+    await googleSignIn.signOut();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
   }
 
   @override
@@ -112,7 +116,7 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white30,
+        backgroundColor: Colors.white,
         title: Text(
           "Edit Profile",
           style: TextStyle(
@@ -130,58 +134,60 @@ class _EditProfileState extends State<EditProfile> {
           ),
         ],
       ),
-      body: isLoading ? 
-      circularProgress() : ListView(
-        children: <Widget>[
-          Container(
-            child: Column(
-            children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(
-              top: 16.0, 
-              bottom:8.0,
-            ),
-            child: CircleAvatar(
-              radius: 50.0,
-              backgroundImage: CachedNetworkImageProvider(user.photoUrl),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
+      body: isLoading
+          ? circularProgress()
+          : ListView(
               children: <Widget>[
-                builDisplayNameField(),
-                buildBioField(),
-              ],
-            ),
-          ),
-          RaisedButton(
-            onPressed: updateProfileData,
-            child: Text(
-              "Update Profile",
-              style: TextStyle(
-                color: Colors.green,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-                padding: EdgeInsets.all(20.0),
-                child: FlatButton.icon(
-                  onPressed: logout,
-                  icon: Icon(Icons.cancel, color: Colors.red),
-                  label: Text(
-                    "Logout",
-                    style: TextStyle(color: Colors.red, fontSize: 20.0),
-                    ),
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: 16.0,
+                          bottom: 8.0,
+                        ),
+                        child: CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              CachedNetworkImageProvider(user.photoUrl),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          children: <Widget>[
+                            buildDisplayNameField(),
+                            buildBioField(),
+                          ],
+                        ),
+                      ),
+                      RaisedButton(
+                        onPressed: updateProfileData,
+                        child: Text(
+                          "Update Profile",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: FlatButton.icon(
+                          onPressed: logout,
+                          icon: Icon(Icons.cancel, color: Colors.red),
+                          label: Text(
+                            "Logout",
+                            style: TextStyle(color: Colors.red, fontSize: 20.0),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

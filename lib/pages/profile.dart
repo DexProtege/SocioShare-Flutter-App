@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
   bool isFollowing = false;
   bool isLoading = false;
   int postCount = 0;
-  int followerCount = 0;
+  int followerCount = -1;
   int followingCount = 0;
   List<Post> posts = [];
 

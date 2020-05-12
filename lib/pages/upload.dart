@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:SocioShare/models/user.dart';
 import 'package:SocioShare/pages/home.dart';
 import 'package:SocioShare/widgets/progress.dart';
@@ -16,31 +16,33 @@ import 'package:uuid/uuid.dart';
 class Upload extends StatefulWidget {
   final User currentUser;
 
-  Upload({ this.currentUser });
+  Upload({this.currentUser});
 
   @override
   _UploadState createState() => _UploadState();
 }
 
-class _UploadState extends State<Upload> with 
-  AutomaticKeepAliveClientMixin<Upload> {
-  TextEditingController locationController = TextEditingController();
+class _UploadState extends State<Upload>
+    with AutomaticKeepAliveClientMixin<Upload> {
   TextEditingController captionController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
   File file;
   bool isUploading = false;
   String postId = Uuid().v4();
 
-  handleTakePhoto() async{
+  handleTakePhoto() async {
     Navigator.pop(context);
-    File file = await ImagePicker.pickImage(source: ImageSource.camera,
-    maxHeight: 675,
-    maxWidth: 960,);
+    File file = await ImagePicker.pickImage(
+      source: ImageSource.camera,
+      maxHeight: 675,
+      maxWidth: 960,
+    );
     setState(() {
       this.file = file;
     });
   }
 
-  handleChooseFromGallery() async{
+  handleChooseFromGallery() async {
     Navigator.pop(context);
     File file = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -56,24 +58,21 @@ class _UploadState extends State<Upload> with
           title: Text("Create Post"),
           children: <Widget>[
             SimpleDialogOption(
-              child: Text("Photo with Camera"),
-              onPressed: handleTakePhoto,
-            ),
+                child: Text("Photo with Camera"), onPressed: handleTakePhoto),
             SimpleDialogOption(
-              child: Text("Image from Gallery"),
-              onPressed: handleChooseFromGallery,
-            ),
+                child: Text("Image from Gallery"),
+                onPressed: handleChooseFromGallery),
             SimpleDialogOption(
               child: Text("Cancel"),
               onPressed: () => Navigator.pop(context),
-            ),
+            )
           ],
         );
-      }
+      },
     );
   }
 
-  Container buildSplashScreen(){
+  Container buildSplashScreen() {
     return Container(
       color: Theme.of(context).accentColor.withOpacity(0.6),
       child: Column(
@@ -83,69 +82,68 @@ class _UploadState extends State<Upload> with
           Padding(
             padding: EdgeInsets.only(top: 20.0),
             child: RaisedButton(
-              shape:RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Text(
-                "Upload Image", 
-                style: TextStyle(
-                color: Colors.white,
-                fontSize: 22.0,
-              ), 
-              ),
-              color: Colors.deepOrangeAccent,
-              onPressed: () => selectImage(context),
-            ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Text(
+                  "Upload Image",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+                ),
+                color: Colors.purple,
+                onPressed: () => selectImage(context)),
           ),
         ],
       ),
     );
   }
 
-  clearImage(){
+  clearImage() {
     setState(() {
       file = null;
     });
   }
 
-  compressImage() async{
+  compressImage() async {
     final tempDir = await getTemporaryDirectory();
     final path = tempDir.path;
     Im.Image imageFile = Im.decodeImage(file.readAsBytesSync());
-    final compressedImageFile = File('$path/img_@postId.jpg')..writeAsBytesSync(Im.encodeJpg
-    (imageFile, quality: 85));
+    final compressedImageFile = File('$path/img_$postId.jpg')
+      ..writeAsBytesSync(Im.encodeJpg(imageFile, quality: 85));
     setState(() {
       file = compressedImageFile;
     });
   }
 
-  uploadImage(imageFile)async{
-    StorageUploadTask uploadTask = storageRef.child("post_$postId.jpg")
-    .putFile(imageFile);
+  Future<String> uploadImage(imageFile) async {
+    StorageUploadTask uploadTask =
+        storageRef.child("post_$postId.jpg").putFile(imageFile);
     StorageTaskSnapshot storageSnap = await uploadTask.onComplete;
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;
   }
 
-  createPostInFirestore({String mediaUrl, String location,
-  String description }){
+  createPostInFirestore(
+      {String mediaUrl, String location, String description}) {
     postsRef
-      .document(widget.currentUser.id)
-      .collection("userPosts")
-      .document(postId)
-      .setData({
-        "postId": postId,
-        "ownerId": widget.currentUser.id,
-        "username": widget.currentUser.username,
-        "mediaUrl": mediaUrl,
-        "description": description,
-        "location": location,
-        "timestamp": timestamp,
-        "likes": {},
-      });
+        .document(widget.currentUser.id)
+        .collection("userPosts")
+        .document(postId)
+        .setData({
+      "postId": postId,
+      "ownerId": widget.currentUser.id,
+      "username": widget.currentUser.username,
+      "mediaUrl": mediaUrl,
+      "description": description,
+      "location": location,
+      "timestamp": timestamp,
+      "likes": {},
+    });
   }
 
-  handleSubmit()async {
+  handleSubmit() async {
     setState(() {
       isUploading = true;
     });
@@ -165,24 +163,26 @@ class _UploadState extends State<Upload> with
     });
   }
 
-  Scaffold buildUploadForm(){
+  Scaffold buildUploadForm() {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white70,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black,),
-          onPressed: clearImage,
-          ),
-          title: Text("Caption Post",
-            style: TextStyle(color: Colors.black),
-          ),
-          actions: [
-            FlatButton(
-              onPressed: isUploading ? null : () => handleSubmit(),
-              child: Text("Post", style: TextStyle(color:
-              Colors.deepOrange,
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0 
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: clearImage),
+        title: Text(
+          "Caption Post",
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
+          FlatButton(
+            onPressed: isUploading ? null : () => handleSubmit(),
+            child: Text(
+              "Post",
+              style: TextStyle(
+                color: Colors.deepOrange,
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
               ),
             ),
           ),
@@ -196,13 +196,13 @@ class _UploadState extends State<Upload> with
             width: MediaQuery.of(context).size.width * 0.8,
             child: Center(
               child: AspectRatio(
-                aspectRatio: 16/9,
+                aspectRatio: 16 / 9,
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: FileImage(file),
-                    )
+                    ),
                   ),
                 ),
               ),
@@ -213,15 +213,15 @@ class _UploadState extends State<Upload> with
           ),
           ListTile(
             leading: CircleAvatar(
-              backgroundImage: CachedNetworkImageProvider
-              (widget.currentUser.photoUrl),
+              backgroundImage:
+                  CachedNetworkImageProvider(widget.currentUser.photoUrl),
             ),
             title: Container(
               width: 250.0,
               child: TextField(
                 controller: captionController,
                 decoration: InputDecoration(
-                  hintText: "Write a catchy caption...",
+                  hintText: "Write a caption...",
                   border: InputBorder.none,
                 ),
               ),
@@ -229,13 +229,17 @@ class _UploadState extends State<Upload> with
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.pin_drop, color: Colors.deepOrange, size: 35.0,),
+            leading: Icon(
+              Icons.pin_drop,
+              color: Colors.blue,
+              size: 35.0,
+            ),
             title: Container(
               width: 250.0,
               child: TextField(
                 controller: locationController,
                 decoration: InputDecoration(
-                  hintText: "Where did you took this photo??",
+                  hintText: "Where was this photo taken?",
                   border: InputBorder.none,
                 ),
               ),
@@ -246,33 +250,34 @@ class _UploadState extends State<Upload> with
             height: 100.0,
             alignment: Alignment.center,
             child: RaisedButton.icon(
-              label: Text("Use current location",
-              style: TextStyle(color: Colors.white),
+              label: Text(
+                "Use Current Location",
+                style: TextStyle(color: Colors.white),
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0),
               ),
               color: Colors.deepOrange,
-              onPressed: getUserLoaction,
+              onPressed: getUserLocation,
               icon: Icon(
                 Icons.my_location,
                 color: Colors.white,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
-  getUserLoaction()async{
-    Position position = await Geolocator().getCurrentPosition
-    (desiredAccuracy: 
-    LocationAccuracy.high);
-    List<Placemark> placemarks =await  Geolocator()
-    .placemarkFromCoordinates(position.latitude, position.longitude);
+  getUserLocation() async {
+    Position position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    List<Placemark> placemarks = await Geolocator()
+        .placemarkFromCoordinates(position.latitude, position.longitude);
     Placemark placemark = placemarks[0];
-    String completeAddress ='${placemark.subThoroughfare} ${placemark.thoroughfare}, ${placemark.subLocality} ${placemark.locality}, ${placemark.subAdministrativeArea}, ${placemark.administrativeArea} ${placemark.postalCode}, ${placemark.country}';
+    String completeAddress =
+        '${placemark.subThoroughfare} ${placemark.thoroughfare}, ${placemark.subLocality} ${placemark.locality}, ${placemark.subAdministrativeArea}, ${placemark.administrativeArea} ${placemark.postalCode}, ${placemark.country}';
     print(completeAddress);
     String formattedAddress = "${placemark.locality}, ${placemark.country}";
     locationController.text = formattedAddress;
@@ -283,7 +288,7 @@ class _UploadState extends State<Upload> with
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    
+
     return file == null ? buildSplashScreen() : buildUploadForm();
   }
 }
