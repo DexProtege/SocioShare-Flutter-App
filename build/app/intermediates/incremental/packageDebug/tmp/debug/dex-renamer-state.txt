@@ -1,0 +1,10 @@
+#Tue May 12 12:02:53 IST 2020
+path.2=classes3.dex
+path.1=classes2.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=C\:\\flutter\\socioshare\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\flutter\\socioshare\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+base.0=C\:\\flutter\\socioshare\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
