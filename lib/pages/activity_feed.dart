@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttershare/pages/home.dart';
-import 'package:fluttershare/pages/post_screen.dart';
-import 'package:fluttershare/pages/profile.dart';
-import 'package:fluttershare/widgets/header.dart';
-import 'package:fluttershare/widgets/progress.dart';
+import 'package:SocioShare/pages/home.dart';
+import 'package:SocioShare/pages/post_screen.dart';
+import 'package:SocioShare/pages/profile.dart';
+import 'package:SocioShare/widgets/header.dart';
+import 'package:SocioShare/widgets/progress.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ActivityFeed extends StatefulWidget {
@@ -125,9 +125,9 @@ class ActivityFeedItem extends StatelessWidget {
     if (type == 'like') {
       activityItemText = "liked your post";
     } else if (type == 'follow') {
-      activityItemText = "started following you";
+      activityItemText = "is following you";
     } else if (type == 'comment') {
-      activityItemText = 'made a comment: $commentData';
+      activityItemText = 'replied: $commentData';
     } else {
       activityItemText = "Error: Unknown type '$type'";
     }
@@ -140,7 +140,7 @@ class ActivityFeedItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 2.0),
       child: Container(
-        color: Colors.white,
+        color: Colors.white54,
         child: ListTile(
           title: GestureDetector(
             onTap: () => showProfile(context, profileId: userId),

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
+import 'package:SocioShare/pages/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttershare/models/user.dart';
-import 'package:fluttershare/pages/home.dart';
-import 'package:fluttershare/pages/search.dart';
-import 'package:fluttershare/widgets/header.dart';
-import 'package:fluttershare/widgets/post.dart';
-import 'package:fluttershare/widgets/progress.dart';
+import 'package:SocioShare/models/user.dart';
+import 'package:SocioShare/pages/home.dart';
+import 'package:SocioShare/pages/search.dart';
+import 'package:SocioShare/widgets/header.dart';
+import 'package:SocioShare/widgets/post.dart';
+import 'package:SocioShare/widgets/progress.dart';
 
 final usersRef = Firestore.instance.collection('users');
 

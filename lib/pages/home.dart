@@ -4,13 +4,13 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttershare/models/user.dart';
-import 'package:fluttershare/pages/activity_feed.dart';
-import 'package:fluttershare/pages/create_account.dart';
-import 'package:fluttershare/pages/profile.dart';
-import 'package:fluttershare/pages/search.dart';
-import 'package:fluttershare/pages/timeline.dart';
-import 'package:fluttershare/pages/upload.dart';
+import 'package:SocioShare/models/user.dart';
+import 'package:SocioShare/pages/activity_feed.dart';
+import 'package:SocioShare/pages/create_account.dart';
+import 'package:SocioShare/pages/profile.dart';
+import 'package:SocioShare/pages/search.dart';
+import 'package:SocioShare/pages/timeline.dart';
+import 'package:SocioShare/pages/upload.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
     if (Platform.isIOS) getiOSPermission();
 
     _firebaseMessaging.getToken().then((token) {
-      //print("Firebase Messaging Token: $token\n");
+      // print("Firebase Messaging Token: $token\n");
       usersRef
           .document(user.id)
           .updateData({"androidNotificationToken": token});
@@ -84,11 +84,11 @@ class _HomeState extends State<Home> {
       // onLaunch: (Map<String, dynamic> message) async {},
       // onResume: (Map<String, dynamic> message) async {},
       onMessage: (Map<String, dynamic> message) async {
-        //print("on message: $message\n");
+        // print("on message: $message\n");
         final String recipientId = message['data']['recipient'];
         final String body = message['notification']['body'];
         if (recipientId == user.id) {
-          //print("Notification shown!");
+          // print("Notification shown!");
           SnackBar snackbar = SnackBar(
               content: Text(
             body,
@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
           ));
           _scaffoldKey.currentState.showSnackBar(snackbar);
         }
-        //print("Notification NOT shown");
+        // print("Notification NOT shown");
       },
     );
   }
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
     _firebaseMessaging.requestNotificationPermissions(
         IosNotificationSettings(alert: true, badge: true, sound: true));
     _firebaseMessaging.onIosSettingsRegistered.listen((settings) {
-      //print("Settings registered: $settings");
+      // print("Settings registered: $settings");
     });
   }
 
@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
   onTap(int pageIndex) {
     pageController.animateToPage(
       pageIndex,
-      duration: Duration(milliseconds: 300),
+      duration: Duration(milliseconds: 250),
       curve: Curves.easeInOut,
     );
   }

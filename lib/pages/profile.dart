@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fluttershare/models/user.dart';
-import 'package:fluttershare/pages/edit_profile.dart';
-import 'package:fluttershare/pages/home.dart';
-import 'package:fluttershare/widgets/header.dart';
-import 'package:fluttershare/widgets/post.dart';
-import 'package:fluttershare/widgets/post_tile.dart';
-import 'package:fluttershare/widgets/progress.dart';
+import 'package:SocioShare/models/user.dart';
+import 'package:SocioShare/pages/edit_profile.dart';
+import 'package:SocioShare/pages/home.dart';
+import 'package:SocioShare/widgets/header.dart';
+import 'package:SocioShare/widgets/post.dart';
+import 'package:SocioShare/widgets/post_tile.dart';
+import 'package:SocioShare/widgets/progress.dart';
 
 class Profile extends StatefulWidget {
   final String profileId;
@@ -307,14 +307,11 @@ class _ProfileState extends State<Profile> {
                     user.bio,
                   ),
                 ),
-                
-          ],
-        ),
-      );
-    });
+              ],
+            ),
+          );
+        });
   }
-
-  
 
   buildProfilePosts() {
     if (isLoading) {
