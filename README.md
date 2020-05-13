@@ -14,7 +14,7 @@ It is a personal project developed by me in VSCode using Flutter and Dart. It is
 
 ## Screenshots
 
-❮img src="screenshots/Screenshot_1589275665.png" width="100" ❯
+<img src="screenshots/Screenshot_1589275665.png" width="100" >
 
 ![](screenshots/Screenshot_1589275665.png)
 ![](screenshots/Screenshot_1589275972.png)
