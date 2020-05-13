@@ -16,14 +16,14 @@ It is a personal project developed by me in VSCode using Flutter and Dart. It is
 
 ❮img src="screenshots/Screenshot_1589275665.png" width="100" ❯
 
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275665.png){height=400px width=500px}
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275972.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275792.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275763.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275926.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275810.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275820.png)
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275874.png)
+![](screenshots/Screenshot_1589275665.png)
+![](screenshots/Screenshot_1589275972.png)
+![](screenshots/Screenshot_1589275792.png)
+![](screenshots/Screenshot_1589275763.png)
+![](screenshots/Screenshot_1589275926.png)
+![](screenshots/Screenshot_1589275810.png)
+![](screenshots/Screenshot_1589275820.png)
+![](screenshots/Screenshot_1589275874.png)
 
 
 ## Contribute
