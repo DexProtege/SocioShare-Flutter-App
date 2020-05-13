@@ -14,16 +14,14 @@ It is a personal project developed by me in VSCode using Flutter and Dart. It is
 
 ## Screenshots
 
-<img src="screenshots/Screenshot_1589275665.png" width="100" >
-
-![](screenshots/Screenshot_1589275665.png)
-![](screenshots/Screenshot_1589275972.png)
-![](screenshots/Screenshot_1589275792.png)
-![](screenshots/Screenshot_1589275763.png)
-![](screenshots/Screenshot_1589275926.png)
-![](screenshots/Screenshot_1589275810.png)
-![](screenshots/Screenshot_1589275820.png)
-![](screenshots/Screenshot_1589275874.png)
+<img src="screenshots/Screenshot_1589275665.png" width="350" >
+<img src="screenshots/Screenshot_1589275972.png" width="350" >
+<img src="screenshots/Screenshot_1589275792.png" width="350" >
+<img src="screenshots/Screenshot_1589275763.png" width="350" >
+<img src="screenshots/Screenshot_1589275926.png" width="350" >
+<img src="screenshots/Screenshot_1589275810.png" width="350" >
+<img src="screenshots/Screenshot_1589275820.png" width="350" >
+<img src="screenshots/Screenshot_1589275874.png" width="350" >
 
 
 ## Contribute
