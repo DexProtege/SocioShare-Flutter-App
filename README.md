@@ -13,7 +13,7 @@ It is a personal project developed by me in VSCode using Flutter and Dart. It is
 - [VSCode](https://code.visualstudio.com/)
 
 ## Screenshots
-![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275665.png =250x250)
+![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275665.png){height=400px width=500px}
 ![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275972.png)
 ![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275792.png)
 ![image](https://github.com/DexProtege/SocioShare/blob/master/screenshots/Screenshot_1589275763.png)
